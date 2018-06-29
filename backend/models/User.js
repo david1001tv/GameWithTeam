@@ -29,14 +29,22 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        units: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        }
     }, {
         timestamps: false,
         freezeTableName: true,
     });
+
+    User.associate = function (models) {
+        const { Units } = models;
+        User.Units = User.belongsTo(Units, {
+            onDelete: 'CASCADE',
+            foreignKey: {
+                name: 'units_id',
+                allowNull: false,
+                unique: 'FOREIGN',
+            },
+        });
+    }
 
     return User;
 };
