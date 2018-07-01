@@ -34,7 +34,7 @@ module.exports = (sequelize) => {
         freezeTableName: true,
     });
 
-    User.associate = function (models) {
+    /*User.associate = function (models) {
         const { Units } = models;
         User.Units = User.belongsTo(Units, {
             onDelete: 'CASCADE',
@@ -44,7 +44,7 @@ module.exports = (sequelize) => {
                 unique: 'FOREIGN',
             },
         });
-    }
+    }*/
 
     return User;
 };
