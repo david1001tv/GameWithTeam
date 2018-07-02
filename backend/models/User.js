@@ -1,5 +1,5 @@
-const {DataTypes} = require('sequelize');
-
+const {DataTypes} = require('sequelize');// подгружаем либу
+// пошло описание пользователя
 module.exports = (sequelize) => {
     const User = sequelize.define('user', {
         id: {

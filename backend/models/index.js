@@ -1,13 +1,13 @@
-const sequelize = require('./sequelize');
+const sequelize = require('./sequelize');// подрубаем базу
 
-const models = {};
+const models = {}; // это объект, в котором бу
 
 [
     require('./User'),
 ].forEach((e) => {
-    const model = e(sequelize);
-    let modelName = model.name.split('_').map(e => e[0].toUpperCase() + e.slice(1)).join('');
-    models[modelName] = model;
+    const model = e(sequelize);// создаем объект модели
+    let modelName = model.name.split('_').map(e => e[0].toUpperCase() + e.slice(1)).join('');// ключ для ассоциативного массива
+    models[modelName] = model;//записываем в этот объект данные 
 });
 
 /*Object.keys(models).forEach((modelName) => {
@@ -16,4 +16,4 @@ const models = {};
     }
 });*/
 
-module.exports = models;
+module.exports = models;// экспортируем модельку
