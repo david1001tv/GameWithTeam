@@ -4,6 +4,8 @@ const models = {}; // это объект, в котором бу
 
 [
     require('./User'),
+    require('./Unit'),
+    require('./Character'),
 ].forEach((e) => {
     const model = e(sequelize);// создаем объект модели
     let modelName = model.name.split('_').map(e => e[0].toUpperCase() + e.slice(1)).join('');// ключ для ассоциативного массива
