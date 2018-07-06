@@ -2,11 +2,11 @@ const bcrypt = require('bcrypt');
 const validate = require('validate.js');
 const Sequelize = require('sequelize');
 
-const {User} = require('../../models/index');
+const { User } = require('../../models/index');
 
 module.exports = {
     addUnitValidator: function (req, res, next) {
-        const {body} = req;
+        const { body } = req;
         // валидация данных
         var constraints = {
             name: {
@@ -20,14 +20,14 @@ module.exports = {
 
         if (errors !== undefined) {
             console.log('Validation errors', errors);
-            res.status(400).json({errors});
+            res.status(400).json({ errors });
         } else {
             next();
         }
     },
 
     addUnit: async function (req, res) {
-        const {body} = req;
+        const { body } = req;
         try {
             //запись в БД
             const unit = (await Unit.create({

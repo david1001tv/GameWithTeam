@@ -1,5 +1,5 @@
 //Настя погнала комментить
-const {DataTypes} = require('sequelize');// подключаю либы, которые необходимые для подключения к базе
+const { DataTypes } = require('sequelize');// подключаю либы, которые необходимые для подключения к базе
 module.exports = (sequelize) => {
     // описfybt модель юнита
     const Unit = sequelize.define('unit', {
@@ -14,11 +14,11 @@ module.exports = (sequelize) => {
             allowNull: false,         // не NULL
             unique: true,
         },
-        
-    },{
-        timestamps: false,            // время создания и обновление строки
-        freezeTableName: true,        // разрешаем менять имя таблицы
-    } );
+
+    }, {
+            timestamps: false,            // время создания и обновление строки
+            freezeTableName: true,        // разрешаем менять имя таблицы
+        });
 
     /**
      * Фнукция создания внешних ключей для модели Unit

@@ -1,4 +1,4 @@
-const {DataTypes} = require('sequelize');// подгружаем либу
+const { DataTypes } = require('sequelize');// подгружаем либу
 // пошло описание пользователя
 module.exports = (sequelize) => {
     const User = sequelize.define('user', {
@@ -30,9 +30,9 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
     }, {
-        timestamps: false,
-        freezeTableName: true,
-    });
+            timestamps: false,
+            freezeTableName: true,
+        });
 
     /**
      * Функция создания связи по внешнему ключу

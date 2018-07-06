@@ -1,5 +1,5 @@
 //подключаю либу для бд-шки
-const {DataTypes} = require('sequelize');
+const { DataTypes } = require('sequelize');
 // пошло описание таблицы
 module.exports = (sequelize) => {
     const Characters = sequelize.define('characters', { // начинаем описывать модель пользователя
@@ -20,12 +20,12 @@ module.exports = (sequelize) => {
         armor: {
             type: DataTypes.INTEGER,
             allowNull: false,
-         },
-        
+        },
+
     }, {
-        timestamps: false,     // время записи и изменения данных
-        freezeTableName: true, // позволить изменять имя таблицы
-    });
+            timestamps: false,     // время записи и изменения данных
+            freezeTableName: true, // позволить изменять имя таблицы
+        });
 
     /**
      * Функция создания связи по внешнему ключу
@@ -46,5 +46,5 @@ module.exports = (sequelize) => {
         });
     }
 
-   return Characters; // вернуть объект
+    return Characters; // вернуть объект
 };
