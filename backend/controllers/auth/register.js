@@ -61,12 +61,14 @@ module.exports = {
                 firstName: body.firstName,
                 lastName: body.lastName,
                 email: body.email,
-                password: hashedPassword
+                password: hashedPassword,
+                login: body.login,
+                level: 1,
             }));
 
             res.status(200).json({
                 success: true,
-                token: user.id,
+                userId: user.id,
             });
         } catch (error) {
             console.error(error);

@@ -34,17 +34,24 @@ module.exports = (sequelize) => {
         freezeTableName: true,
     });
 
-    /*User.associate = function (models) {
-        const { Units } = models;
-        User.Units = User.belongsTo(Units, {
+    /**
+     * Функция создания связи по внешнему ключу
+     * @param {*} models объект содержащий модели
+     */
+    User.associate = function (models) {
+        // модель, с котрой образуется связь
+        const { Unit } = models;
+        // создание связи
+        User.Units = User.hasMany(Unit, {
+            // каскадное удаление для сохранения целостности
             onDelete: 'CASCADE',
+            // описание внешнего ключа
             foreignKey: {
-                name: 'units_id',
-                allowNull: false,
-                unique: 'FOREIGN',
+                name: 'units_id',// имя
+                allowNull: false,// не NULL
             },
         });
-    }*/
+    }
 
     return User;
 };

@@ -32,6 +32,7 @@ app.enable('trust proxy');
  * API routes
  */
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/units', require('./routes/units'));
 
 /**
  * Start Express server.

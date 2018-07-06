@@ -1,16 +1,18 @@
 //Настя погнала комментить
 const {DataTypes} = require('sequelize');// подключаю либы, которые необходимые для подключения к базе
 module.exports = (sequelize) => {
-    const User = sequelize.define('unit', { // начинаем описывать модель юнита
+    // описfybt модель юнита
+    const Unit = sequelize.define('unit', {
         id: {
             type: DataTypes.INTEGER,  // тип int
-            allowNull: false,         // не разрешено быть нулем
+            allowNull: false,         // не NULL
             autoIncrement: true,      // автоинкрементное поле
             primaryKey: true,         // основной ключ
         },
         name: {
             type: DataTypes.STRING,   // тип строка
-            allowNull: false,         // не может быть нулем
+            allowNull: false,         // не NULL
+            unique: true,
         },
         
     },{
@@ -18,15 +20,31 @@ module.exports = (sequelize) => {
         freezeTableName: true,        // разрешаем менять имя таблицы
     } );
 
-    // а это функция, которая описывает поле FK
+    /**
+     * Фнукция создания внешних ключей для модели Unit
+     * @param {*} models объект (ассоциативный массив) с моделями
+     */
     Unit.associate = function (models) {
-        const { Characters } = models;     // наша моделька
-        User.Characters = User.belongsTo(Characters, {
-            onDelete: 'CASCADE',          // типо каскадность
+        // модели, к которым делается привязка
+        const { User, Characters } = models;
+        Unit.Characters = Unit.belongsTo(Characters, {
+            // каскадное удаление для сохранения целостности данных
+            onDelete: 'CASCADE',
+            // описание поля (внешнего ключа) 
             foreignKey: {
-                name: 'characters_id',   // поле таблицы Сharacter(к тому полю, к которому я обращаюсь) 
-                allowNull: false,        // не ноль
-                unique: 'FOREIGN',       // уникальный
+                name: 'characters_id',// имя
+                allowNull: false,// не NULL
+                unique: 'FOREIGN',// уникальное
+            },
+        });
+        Unit.User = Unit.belongsTo(User, {
+            // каскадное удаление для сохранения целостности данных
+            onDelete: 'CASCADE',
+            // описан е внешнего ключа
+            foreignKey: {
+                name: 'user_id',// имя
+                allowNull: false,// не NULL
+                unique: 'FOREIGN',// уникальный
             },
         });
     }

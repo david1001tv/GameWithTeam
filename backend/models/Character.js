@@ -27,5 +27,24 @@ module.exports = (sequelize) => {
         freezeTableName: true, // позволить изменять имя таблицы
     });
 
+    /**
+     * Функция создания связи по внешнему ключу
+     * @param {*} models объект содержащий модели
+     */
+    Characters.associate = function (models) {
+        // моедль, с которой образуется связь
+        const { Unit } = models;
+        // описание связи
+        Characters.Units = Characters.hasMany(Unit, {
+            // каскадное удаление для сохранения целостности
+            onDelete: 'CASCADE',
+            // описание внешнего ключа
+            foreignKey: {
+                name: 'units_id',// имя
+                allowNull: false,// не NULL
+            },
+        });
+    }
+
    return Characters; // вернуть объект
 };
