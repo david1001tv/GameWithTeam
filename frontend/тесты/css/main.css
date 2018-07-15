@@ -1,0 +1,88 @@
+body{
+    margin: 0;
+}
+
+
+
+
+footer{ 
+    background: url('../img/header_photo.png') no-repeat fixed; 
+    background-size: cover;
+}
+
+/* .cloud{
+   
+    position: relative;
+}
+.cloud-1{
+    width: 270px;
+    height: 150px;
+
+}
+
+.logo__item{
+    width: 100px;
+    height: 100px;
+    left: 30px;
+    bottom: 34px;
+  
+    position: absolute;
+}
+
+.ty__item{
+    width: 683px;
+    height: 137px;
+}
+
+.vcenter {
+    display: inline-block;
+    float: none;
+    vertical-align: middle;
+  }
+
+.padd{
+    padding: 0;
+} */
+
+
+.logo{
+    background: url('../img/tyc_1.png') no-repeat fixed; 
+    background-size: 344px 150px;
+    width: 344px;
+    height: 150px;
+    display: inline-block;
+}
+
+.logo__item{
+    width: 100px;
+    height: 100px;
+}
+
+
+.log_i {
+    width: 100px;
+    height: 100px;
+    padding-top: 17px;
+   
+    padding-left: 52px;
+}
+
+
+.cloud_5{
+    width: 801px;
+    height: 160px;
+}
+
+.cloud {
+    justify-content: space-between;
+    display: flex;
+}
+
+.right__cloud{
+    background: url('../img/cloud_5.png') no-repeat; 
+    background-size: 801px 160px;
+    
+    width: 801px;
+    height: 160px;
+    display: inline-block;
+}

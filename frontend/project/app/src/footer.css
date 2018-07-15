@@ -1,0 +1,16 @@
+.fon{
+    background: url("fon.png") no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+     background-size: cover;
+}
+.tych1{
+   
+    background: url("tychka1.png") no-repeat;
+    background-size: 100%; /* Современные браузеры */
+}
+
+.logo__head{
+padding: 20px;
+}
