@@ -86,3 +86,7 @@ footer{
     height: 160px;
     display: inline-block;
 }
+
+.navbar{
+    list-style-type: none;
+}
